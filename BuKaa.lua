@@ -4422,7 +4422,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"*
 if TextMsg == 'ريمكس' then
 Redis:set(TheBuKa.."BuKa:Status:distraction8"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"* ↯︙تم تفعيل امر ريمكس *").unLock,"md",true) end
-if TextMsg == 'ريمكس' then
+if TextMsg == 'بنك عام' then
   Redis:set( TheBuKa.."BuKa:lock_getpankiuserall"..msg_chat_id,true) 
   return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"* ↯︙تم تفعيل امر ريمكس *").unLock,"md",true) end
   if TextMsg == 'ميمز' then
