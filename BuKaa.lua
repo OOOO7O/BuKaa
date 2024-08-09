@@ -2204,11 +2204,11 @@ if text == 'جلب نسخه الردود' or text == 'جلب الردود' or te
   if not msg.ControllerBot then 
   return LuaTele.sendText(msg_chat_id,msg_id,'\n* ↯︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
   end
-  local Get_Json = '{"BotId": '..TheOMAR..','  
+  local Get_Json = '{"BotId": '..TheBuKa..','  
   Get_Json = Get_Json..'"GroupsBotreply":{'
-  local Groups = Redis:smembers(TheOMAR..'OMAR:ChekBotAdd')  
+  local Groups = Redis:smembers(TheBuKa..'BuKa:ChekBotAdd')  
   for k,ide in pairs(Groups) do   
-  listrep = Redis:smembers(TheOMAR.."OMAR:List:Manager"..ide.."")
+  listrep = Redis:smembers(TheBuKa.."BuKa:List:Manager"..ide.."")
   if k == 1 then
   Get_Json = Get_Json..'"'..ide..'":{'
   else
@@ -2216,14 +2216,14 @@ if text == 'جلب نسخه الردود' or text == 'جلب الردود' or te
   end
   if #listrep >= 5 then
   for k,v in pairs(listrep) do
-  if Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Gif"..v..ide) then
-  db = "gif@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Gif"..v..ide)
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Vico"..v..ide) then
-  db = "Vico@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Vico"..v..ide)
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Stekrs"..v..ide) then
-  db = "Stekrs@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Stekrs"..v..ide)
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Text"..v..ide) then
-  db = "Text@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Text"..v..ide)
+  if Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Gif"..v..ide) then
+  db = "gif@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Gif"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Vico"..v..ide) then
+  db = "Vico@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Vico"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Stekrs"..v..ide) then
+  db = "Stekrs@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Stekrs"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Text"..v..ide) then
+  db = "Text@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Text"..v..ide)
   db = string.gsub(db,'"','')
   db = string.gsub(db,"'",'')
   db = string.gsub(db,'*','')
@@ -2231,16 +2231,16 @@ if text == 'جلب نسخه الردود' or text == 'جلب الردود' or te
   db = string.gsub(db,'{','')
   db = string.gsub(db,'}','')
   db = string.gsub(db,'\n',' ')
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Photo"..v..ide) then
-  db = "Photo@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Photo"..v..ide) 
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Video"..v..ide) then
-  db = "Video@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Video"..v..ide)
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:File"..v..ide) then
-  db = "File@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:File"..v..ide)
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Audio"..v..ide) then
-  db = "Audio@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:Audio"..v..ide)
-  elseif Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:video_note"..v..ide) then
-  db = "video_note@"..Redis:get(TheOMAR.."OMAR:Add:Rd:Manager:video_note"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Photo"..v..ide) then
+  db = "Photo@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Photo"..v..ide) 
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Video"..v..ide) then
+  db = "Video@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Video"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:File"..v..ide) then
+  db = "File@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:File"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Audio"..v..ide) then
+  db = "Audio@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:Audio"..v..ide)
+  elseif Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:video_note"..v..ide) then
+  db = "video_note@"..Redis:get(TheBuKa.."BuKa:Add:Rd:Manager:video_note"..v..ide)
   end
   v = string.gsub(v,'"','')
   v = string.gsub(v,"'",'')
@@ -2271,25 +2271,25 @@ if text == 'جلب نسخه الردود' or text == 'جلب الردود' or te
   for GroupId,ListGroup in pairs(Reply_Groups.GroupsBotreply) do
   if ListGroup.taha == "ok" then
   for k,v in pairs(ListGroup) do
-  Redis:sadd(TheOMAR.."OMAR:List:Manager"..GroupId,k)
+  Redis:sadd(TheBuKa.."BuKa:List:Manager"..GroupId,k)
   if v and v:match('gif@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Gif"..k..GroupId,v:match('gif@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Gif"..k..GroupId,v:match('gif@(.*)'))
   elseif v and v:match('Vico@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Vico"..k..GroupId,v:match('Vico@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Vico"..k..GroupId,v:match('Vico@(.*)'))
   elseif v and v:match('Stekrs@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Stekrs"..k..GroupId,v:match('Stekrs@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Stekrs"..k..GroupId,v:match('Stekrs@(.*)'))
   elseif v and v:match('Text@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Text"..k..GroupId,v:match('Text@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Text"..k..GroupId,v:match('Text@(.*)'))
   elseif v and v:match('Photo@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Photo"..k..GroupId,v:match('Photo@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Photo"..k..GroupId,v:match('Photo@(.*)'))
   elseif v and v:match('Video@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Video"..k..GroupId,v:match('Video@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Video"..k..GroupId,v:match('Video@(.*)'))
   elseif v and v:match('File@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:File"..k..GroupId,v:match('File@(.*)') )
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:File"..k..GroupId,v:match('File@(.*)') )
   elseif v and v:match('Audio@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:Audio"..k..GroupId,v:match('Audio@(.*)'))
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:Audio"..k..GroupId,v:match('Audio@(.*)'))
   elseif v and v:match('video_note@(.*)') then
-  Redis:set(TheOMAR.."OMAR:Add:Rd:Manager:video_note"..k..GroupId,v:match('video_note@(.*)') )
+  Redis:set(TheBuKa.."BuKa:Add:Rd:Manager:video_note"..k..GroupId,v:match('video_note@(.*)') )
   end
   end
   end
@@ -4422,7 +4422,10 @@ return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"*
 if TextMsg == 'ريمكس' then
 Redis:set(TheBuKa.."BuKa:Status:distraction8"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"* ↯︙تم تفعيل امر ريمكس *").unLock,"md",true) end
-if TextMsg == 'ميمز' then
+if TextMsg == 'ريمكس' then
+  Redis:set( TheBuKa.."BuKa:lock_getpankiuserall"..msg_chat_id,true) 
+  return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"* ↯︙تم تفعيل امر ريمكس *").unLock,"md",true) end
+    endif TextMsg == 'ميمز' then
 Redis:set(TheBuKa.."BuKa:Status:distraction9"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"* ↯︙تم تفعيل امر ميمز *").unLock,"md",true) end
 if TextMsg == 'مسلسل' then
@@ -12256,7 +12259,7 @@ return LuaTele.sendText(msg_chat_id,msg_id, " ↯︙عدد الجواهر الت
 end 
 end
 -- بنك
-if text == 'بنك' or text == 'البنك' then
+if text == 'بكنك' or text == 'كالبنك' then
 LuaTele.sendText(msg.chat_id,msg.id,[[*
 • مرحبا بك هذه اوامر لعبه البنك 
 ——–——–——–——–
